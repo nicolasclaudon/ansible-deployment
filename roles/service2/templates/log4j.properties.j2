@@ -1,0 +1,11 @@
+log4j.rootLogger={{ log_level }}, ConsoleAppender
+log4j.logger.inspire.pfl.bnppf.booking.service={{ log_level }}, KafkaAppender
+log4j.appender.ConsoleAppender=org.apache.log4j.ConsoleAppender
+log4j.appender.ConsoleAppender.Target=System.out
+log4j.appender.ConsoleAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.ConsoleAppender.layout.ConversionPattern=%d{ABSOLUTE} %-5p (%X{sessionID}) [%c{1}:%M:%L] %m%n
+log4j.appender.KafkaAppender=org.apache.kafka.log4jappender.KafkaLog4jAppender
+log4j.appender.KafkaAppender.topic={{ log4j_appender_kafka_topic }}
+log4j.appender.KafkaAppender.brokerList={{ spring_kafka_bootstrap_servers }}
+log4j.appender.KafkaAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.KafkaAppender.layout.ConversionPattern={"level":"%p","timestamp":"%d{ISO8601}","thread":"%t","file":"%F", "line":"%L","message":"%m"}%n

@@ -1,0 +1,8 @@
+---
+- name: deploy tata
+  include_role:
+    name: springboot
+  vars:
+    sb_app_name: tata
+    sb_user: toto
+    sb_group: toto

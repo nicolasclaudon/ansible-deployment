@@ -1,0 +1,7 @@
+---
+- hosts: all
+  roles:
+    - { role: toto,
+     sb_app_name: "john",
+     sb_src_file: "../toto/toto.jar" }
+    - { role: tata, sb_src_url: "https://search.maven.org/remotecontent?filepath=org/robolectric/junit/3.8/junit-3.8.jar" }

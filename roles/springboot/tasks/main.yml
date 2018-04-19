@@ -1,0 +1,50 @@
+---
+# tasks file for springboot
+
+- name: "Create group for springboot app"
+  group:
+    name: "{{ sb_group }}"
+    state: present
+
+- name: "Create user for springboot app"
+  user:
+    name: "{{ sb_user }}"
+    group: "{{ sb_group }}"
+    state: present
+
+- name: "Create deploy folder if not exists"
+  file:
+    path: "{{ sb_deploy_folder }}"
+    state: directory
+    owner: "{{ sb_user }}"
+    group: "{{ sb_group }}"
+
+- name: "Create conf folder if not exists"
+  file:
+    path: "{{ app_conf_folder }}"
+    state: directory
+    owner: "{{ sb_user }}"
+    group: "{{ sb_group }}"
+
+- name: "Copy jar application"
+  copy:
+    src: "{{ sb_src_file }}"
+    #TODO change the name of the destination file by having a variable for the src filename and a src path
+    dest: "{{ sb_deploy_folder }}/{{ sb_app_name }}.jar"
+    owner: "{{ sb_user }}"
+    group: "{{ sb_group }}"
+    mode: "u+x"
+  when: sb_src_file is defined and sb_src_file|length > 0
+  # notify:
+  #   - "Restart application"
+
+- name: "Download springboot application"
+  get_url:
+    url: "{{ sb_src_url }}"
+    dest: "{{ sb_deploy_folder }}"
+    owner: "{{ sb_user }}"
+    group: "{{ sb_group }}"
+    mode: "u+x"
+  when: sb_src_url is defined
+  # notify:
+  #   - "Restart application"

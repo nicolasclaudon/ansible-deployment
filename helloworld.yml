@@ -1,0 +1,5 @@
+---
+# to run this example: ansible-playbook -i "localhost," -c local helloworld.yml
+- hosts: all
+  tasks:
+    - shell: echo "hello world"

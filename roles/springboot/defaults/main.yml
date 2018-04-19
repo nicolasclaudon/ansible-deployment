@@ -1,0 +1,15 @@
+---
+# defaults file for springboot
+sb_app_path: /opt/Ap12550
+sb_app_name: myservice
+sb_deploy_folder: "{{ sb_app_path }}/{{ sb_app_name }}"
+sb_conf_folder: "{{ sb_app_path }}/conf"
+
+#TODO verify that it can stay into springboot module
+app_folder: "/opt/Ap12550"
+conf_folder: "conf"
+app_conf_folder: "{{ app_folder }}/{{ conf_folder }}"
+
+sb_user: nclaudon
+sb_group: everyone
+sb_app_conf: /opt/

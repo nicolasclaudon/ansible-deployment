@@ -1,0 +1,27 @@
+---
+- name: deploy toto
+  include_role:
+    name: springboot
+  vars:
+    sb_app_name: toto
+    sb_user: "{{ service_user }}"
+    sb_group: "{{ service_group }}"
+
+- name: "Deploy toto application properties"
+  template:
+    src: application.properties.j2
+    dest: "{{ app_conf_folder }}/{{ sb_app_name }}.application.properties"
+    owner: "{{ service_user }}"
+    group: "{{ service_group }}"
+
+- name: "Deploy toto log4j.properties"
+  template:
+    src: log4j.properties.j2
+    dest: "{{ app_conf_folder }}/{{ sb_app_name }}.log4j.properties"
+
+# - name: "Deploy log4j.properties"
+#   template:
+#     src: log4j.properties.j2
+#     dest: "{{ app_conf_folder }}"
+#     owner: "{{ sb_user }}"
+#     group: "{{ sb_group }}"

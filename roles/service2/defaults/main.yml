@@ -1,0 +1,22 @@
+---
+# Behavior
+# ========
+service_user: toto
+service_group: toto
+app_folder: "/opt/Ap12550"
+conf_folder: "conf"
+app_conf_folder: "{{ app_folder }}/{{ conf_folder }}"
+
+
+# Template
+# ========
+bnppf_booking_api_url: http://stub-booking:10112/stub/booking
+spring_kafka_bootstrap_servers: s00vl9983599.fr.net.intra:9092
+spring_kafka_consumer_group_id: pfl-process-group
+bnppf_sctinst_request_booking: bnppf.sctinst.paymentbooking
+bnppf_sctinst_logging: bnppf.sctinst.logging
+toto_timeout: 5000
+
+# log4j
+log_level: "INFO"
+log4j_appender_kafka_topic: bnppf.sctinst.logging
