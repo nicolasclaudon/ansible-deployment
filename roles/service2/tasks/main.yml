@@ -1,27 +1,25 @@
 ---
-- name: deploy toto
+- name: deploy service2
   include_role:
     name: springboot
   vars:
-    sb_app_name: toto
+    sb_app_name: service2
     sb_user: "{{ service_user }}"
     sb_group: "{{ service_group }}"
 
-- name: "Deploy toto application properties"
+- name: "Deploy service2 application properties"
   template:
     src: application.properties.j2
     dest: "{{ app_conf_folder }}/{{ sb_app_name }}.application.properties"
     owner: "{{ service_user }}"
     group: "{{ service_group }}"
 
-- name: "Deploy toto log4j.properties"
-  template:
-    src: log4j.properties.j2
-    dest: "{{ app_conf_folder }}/{{ sb_app_name }}.log4j.properties"
-
-# - name: "Deploy log4j.properties"
-#   template:
-#     src: log4j.properties.j2
-#     dest: "{{ app_conf_folder }}"
-#     owner: "{{ sb_user }}"
-#     group: "{{ sb_group }}"
+- name: "Deploy service2 log4j.properties"
+  include_role:
+    name: log4j
+  vars:
+    myservice_name: service2
+    log4j_app_conf_folder: "{{ app_conf_folder }}"
+    log4j_file_owner: "{{ service_user }}"
+    log4j_group_owner: "{{ service_group }}" 
+    log4j_package_name: "inspire.service2"

@@ -1,0 +1,9 @@
+---
+# tasks file for log4j
+
+- name: "Deploy {{ myservice_name }} log4j.properties into {{ log4j_app_conf_folder }}"
+  template:
+    src: log4j.properties.j2
+    dest: "{{ log4j_app_conf_folder }}/{{ myservice_name }}.log4j.properties"
+    owner: "{{ log4j_file_owner }}"
+    group: "{{ log4j_group_owner }}"

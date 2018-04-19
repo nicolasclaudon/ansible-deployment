@@ -1,5 +1,5 @@
 log4j.rootLogger={{ log_level }}, ConsoleAppender
-log4j.logger.inspire.pfl.bnppf.booking.service={{ log_level }}, KafkaAppender
+log4j.logger.{{ log4j_package_name }}={{ log_level }}, KafkaAppender
 log4j.appender.ConsoleAppender=org.apache.log4j.ConsoleAppender
 log4j.appender.ConsoleAppender.Target=System.out
 log4j.appender.ConsoleAppender.layout=org.apache.log4j.PatternLayout

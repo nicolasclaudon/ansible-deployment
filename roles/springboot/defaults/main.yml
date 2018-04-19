@@ -10,6 +10,6 @@ app_folder: "/opt/Ap12550"
 conf_folder: "conf"
 app_conf_folder: "{{ app_folder }}/{{ conf_folder }}"
 
-sb_user: nclaudon
+sb_user:  nclaudon
 sb_group: everyone
 sb_app_conf: /opt/

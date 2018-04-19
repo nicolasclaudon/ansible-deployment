@@ -1,0 +1,7 @@
+myservice_name: myservice
+app_folder: /opt/Ap12550
+conf_folder: conf
+log4j_app_conf_folder: "{{ app_folder }}/{{ conf_folder }}"
+log4j_package_name:
+log4j_file_owner: myservice
+log4j_group_owner: myservice
