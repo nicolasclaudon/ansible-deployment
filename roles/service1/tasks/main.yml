@@ -5,4 +5,4 @@
   vars:
     sb_app_name: service1
     service_user: service2
-    sb_group: service2
+    service_group: service2

@@ -4,8 +4,6 @@
     name: springboot
   vars:
     sb_app_name: service2
-    sb_user: "{{ service_user }}"
-    sb_group: "{{ service_group }}"
 
 - name: "Deploy service2 application properties"
   template:
